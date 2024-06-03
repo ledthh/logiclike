@@ -13,7 +13,7 @@ export const FilterPanel: FC<FilterPanelProps> = (props) => {
 
   return (
     <div className={classNames('border border-bcolor p-3 rounded-[18px] w-[264px]', className)}>
-      <RList items={items} onChange={onNameChange} />
+      <RList items={items} onListItemChange={onNameChange!} />
     </div>
   )
 }

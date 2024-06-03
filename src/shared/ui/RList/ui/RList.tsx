@@ -1,22 +1,24 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, HTMLAttributes, useEffect, useState } from 'react'
 import { RListItem } from './RListItem';
 import { DEFAULT_TAG } from 'src/constants';
+import classNames from 'classnames';
 
-interface ListProps {
+interface ListProps extends HTMLAttributes<HTMLDivElement> {
+  className?: string;
   items: { id: string; name: string }[];
-  onChange?: (name: string) => void;
+  onListItemChange: (name: string) => void;
 }
 
 export const RList: FC<ListProps> = (props) => {
-  const { items, onChange } = props;
+  const { className, items, onListItemChange } = props;
   const [activeId, setActiveId] = useState<string>(DEFAULT_TAG);
 
   useEffect(() => {
-    onChange?.(activeId);
+    onListItemChange(activeId);
   }, [activeId]);
 
   return (
-    <div className='flex flex-col'>
+    <div className={classNames('flex flex-col', className)}>
       {
         items.map(({ name, id }) => (
           <RListItem key={id} idItem={id} isActive={id === activeId} onItemClick={setActiveId}>{name}</RListItem>
