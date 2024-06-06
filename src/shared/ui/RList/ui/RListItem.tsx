@@ -14,7 +14,7 @@ export const RListItem: FC<ListItemProps> = (props) => {
   return (
     <button
       className={classNames(
-        'rounded-xl text-left font-extrabold text-lg leading-[18px] p-3',
+        'rounded-xl text-left text-lg leading-[18px] p-3',
         { 'item--active': isActive })
       }
       onClick={() => onItemClick?.(idItem)}

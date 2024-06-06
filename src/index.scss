@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('./styles/fonts.scss');
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
 @layer utilities {
   .item--active {
     @apply bg-asuccess text-white;
